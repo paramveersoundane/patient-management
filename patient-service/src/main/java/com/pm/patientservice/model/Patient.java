@@ -48,7 +48,7 @@ public class Patient {
     public void setName(@NotNull String name) {
         this.name = name;
     }
-
+//98906
     public @NotNull @Email String getEmail() {
         return email;
     }

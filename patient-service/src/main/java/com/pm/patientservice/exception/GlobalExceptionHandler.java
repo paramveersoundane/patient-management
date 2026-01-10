@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.View;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,6 +14,11 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
+    private final View error;
+
+    public GlobalExceptionHandler(View error) {
+        this.error = error;
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String,String>> handleValidationException(MethodArgumentNotValidException exception){
@@ -29,6 +35,14 @@ public class GlobalExceptionHandler {
         Map<String,String> errors = new HashMap<>();
         log.warn("Email already exist {}", ex.getMessage());
         errors.put("message", "Email already exists exception");
+        return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(PatientNotFoundException.class)
+    public ResponseEntity<Map<String,String>> handlePatientNotFoundException(PatientNotFoundException ex){
+        Map<String,String> errors = new HashMap<>();
+        log.warn("Patient not found {}",ex.getMessage());
+        errors.put("message","Patient not found exception");
         return ResponseEntity.badRequest().body(errors);
     }
 

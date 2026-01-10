@@ -5,9 +5,9 @@ import com.pm.patientservice.dto.PatientResponseDTO;
 import com.pm.patientservice.model.Patient;
 
 import java.time.LocalDate;
-
+//79729
 public class PatientMapper {
-    public static PatientResponseDTO getDTO(Patient patient){
+    public static PatientResponseDTO toDTO(Patient patient){
         PatientResponseDTO patientResponseDTO= new PatientResponseDTO();
         patientResponseDTO.setId(patient.getId().toString());
         patientResponseDTO.setName(patient.getName());
@@ -17,7 +17,7 @@ public class PatientMapper {
         return patientResponseDTO;
     }
 
-    public static Patient toPatient(PatientRequestDTO patientRequestDTO){
+    public static Patient toModel(PatientRequestDTO patientRequestDTO){
         Patient patient = new Patient();
         patient.setName(patientRequestDTO.getName());
         patient.setAddress(patientRequestDTO.getAddress());
