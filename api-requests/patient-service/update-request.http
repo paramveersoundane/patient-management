@@ -3,7 +3,7 @@ PUT http://localhost:4000/patients/223e4567-e89b-12d3-a456-426614174014
 Content-Type: application/json
 
 {
-  "name": "Isabella Walker",
+  "name": "Isabella Walker 12",
   "email": "test123@example1.com",
   "address": "123 main street",
   "dateOfBirth": "1987-10-17"

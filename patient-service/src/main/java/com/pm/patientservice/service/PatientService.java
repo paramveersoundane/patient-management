@@ -45,10 +45,11 @@ public class PatientService {
         );
 
         // Email already exist check
-        if(patientRepository.existsByEmail(patientRequestDTO.getEmail())){
+        if(patientRepository.existsByEmailAndIdNot(patientRequestDTO.getEmail(),id)){
             // Creating custom exception
             throw new EmailAlreadyExistException("A patient with this email " +patientRequestDTO.getEmail()+" already exists");
         }
+
 
         patient.setName(patientRequestDTO.getName());
         patient.setEmail(patientRequestDTO.getEmail());
@@ -60,5 +61,9 @@ public class PatientService {
         return PatientMapper.toDTO(updatepatient);
 
 
+    }
+
+    public void deletePatient(UUID id){
+        patientRepository.deleteById(id);
     }
 }
