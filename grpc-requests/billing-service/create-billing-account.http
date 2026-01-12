@@ -1,0 +1,10 @@
+
+GRPC localhost:9001/BillingService/CreateBillingAccount
+Content-Type: application/json
+
+{
+"patientId": "928404801",
+ "name": "Jogheswari Devi",
+  "email": "jogh.gh@Termail.com"
+}
+###
