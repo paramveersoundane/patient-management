@@ -33,7 +33,7 @@ spring:
 
 
         - id: api-docs-auth-route
-          uri: http://auth-service:4005
+          uri: http://auth-service:4009
           predicates:
               - Path=/api-docs/auth
           filters:
