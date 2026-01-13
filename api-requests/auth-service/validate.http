@@ -1,3 +1,6 @@
 ### GET request to validate Token
-GET http://localhost:4009/validate
+
+#GET http://localhost:4009/validate
+#api-gateway
+GET http://localhost:4008/auth/validate
 Authorization: Bearer {{token}}
