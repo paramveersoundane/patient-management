@@ -3,5 +3,6 @@
 #Via api-gateway
 GET http://localhost:4008/api/patients
 Authorization: Bearer {{token}}
+#Authorization: Bearer srhdghdshsdhsj   // for 401-> fixed 500 internal error issue with Exception handler in api-gateway
 
 ###
