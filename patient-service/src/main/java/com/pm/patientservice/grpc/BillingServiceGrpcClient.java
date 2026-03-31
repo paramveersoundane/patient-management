@@ -1,8 +1,6 @@
 package com.pm.patientservice.grpc;
 
-import billing.BillingRequest;
-import billing.BillingResponse;
-import billing.BillingServiceGrpc;
+import billing.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.slf4j.Logger;
@@ -34,4 +32,11 @@ public class BillingServiceGrpcClient {
         log.info("Received response from billing service VIA GRPC: {}" , response);
         return response;
     }
+
+    public String numberToCharacter(int number) {
+        NumberRequest request = NumberRequest.newBuilder().setNumber(number).build();
+        CharacterResponse response = blockingStub.numberToCharacter(request);
+        return response.getCharacter();
+    }
+
 }
